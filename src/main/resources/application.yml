@@ -1,0 +1,38 @@
+spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  profiles: dev
+  data:
+    mongodb:
+      uri: mongodb://manager_app:manager_app123!#$@192.168.97.180:27017/manager_app
+      # uri: mongodb://manager_app:manager_app123!#$@192.168.96.20:27017/manager_app
+  redis:
+    host: 192.168.97.180
+    #host: 192.168.96.20
+    port: 6381
+    database: 5
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        show_sql: true
+  datasource:
+    url: jdbc:mysql://192.168.97.180:3306/wjdbmgrapp?autoReconnect=true
+    # url: jdbc:mysql://192.168.96.20:3306/wjdbmgrapp?autoReconnect=true
+    username: mgrapp_all
+    password: mgrapp123!@#
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    platform: mysql
+    sql-script-encoding: UTF-8
+
+server:
+  port: 3056
+  servlet:
+    context-path: /web_flux_socket/
+logging:
+  level:
+    cn.yami.wfluxsocket: TRACE
+  path: ./yami/code/webfluxsocket/logs
